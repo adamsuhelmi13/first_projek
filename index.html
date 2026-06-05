@@ -9,13 +9,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --vercel-black: #171717;
-            --vercel-gray-text: #4d4d4d;
-            --vercel-border: rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-            --vercel-shadow: rgba(0, 0, 0, 0.08) 0px 0px 0px 1px, rgba(0, 0, 0, 0.04) 0px 2px 2px;
+            /* Light Mode Variables */
+            --bg-color: #ffffff;
+            --text-primary: #171717;
+            --text-secondary: #4d4d4d;
+            --nav-bg: rgba(255, 255, 255, 0.8);
+            --border-color: rgba(0, 0, 0, 0.08);
+            --shadow-primary: rgba(0, 0, 0, 0.08) 0px 0px 0px 1px, rgba(0, 0, 0, 0.04) 0px 2px 2px;
+            --card-bg: #ffffff;
+            --btn-bg: #171717;
+            --btn-text: #ffffff;
+            --badge-bg: #ebf5ff;
+            --badge-text: #0068d6;
+            --footer-border: #ebebeb;
+            
             --accent-blue: #0070f3;
             --accent-pink: #de1d8d;
             --accent-red: #ff5b4f;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                /* Dark Mode Variables */
+                --bg-color: #000000;
+                --text-primary: #ededed;
+                --text-secondary: #a1a1a1;
+                --nav-bg: rgba(0, 0, 0, 0.8);
+                --border-color: rgba(255, 255, 255, 0.14);
+                --shadow-primary: rgba(255, 255, 255, 0.14) 0px 0px 0px 1px, rgba(255, 255, 255, 0.04) 0px 2px 2px;
+                --card-bg: #0a0a0a;
+                --btn-bg: #ededed;
+                --btn-text: #000000;
+                --badge-bg: rgba(0, 112, 243, 0.1);
+                --badge-text: #3291ff;
+                --footer-border: #333333;
+            }
         }
 
         * {
@@ -26,10 +54,11 @@
 
         body {
             font-family: 'Geist', system-ui, -apple-system, sans-serif;
-            color: var(--vercel-black);
-            background-color: #ffffff;
+            color: var(--text-primary);
+            background-color: var(--bg-color);
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         /* Navigation */
@@ -40,10 +69,10 @@
             padding: 1rem 2rem;
             position: sticky;
             top: 0;
-            background: rgba(255, 255, 255, 0.8);
+            background: var(--nav-bg);
             backdrop-filter: blur(8px);
             z-index: 100;
-            box-shadow: var(--vercel-border);
+            box-shadow: 0px 0px 0px 1px var(--border-color);
         }
 
         .logo {
@@ -59,6 +88,10 @@
             width: 24px;
             height: 24px;
         }
+        
+        @media (prefers-color-scheme: dark) {
+            .logo svg path { fill: white; }
+        }
 
         .nav-links {
             display: flex;
@@ -67,19 +100,19 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--vercel-gray-text);
+            color: var(--text-secondary);
             font-size: 14px;
             font-weight: 500;
             transition: color 0.2s;
         }
 
         .nav-links a:hover {
-            color: var(--vercel-black);
+            color: var(--text-primary);
         }
 
         .btn-dark {
-            background: var(--vercel-black);
-            color: white;
+            background: var(--btn-bg);
+            color: var(--btn-text);
             padding: 8px 16px;
             border-radius: 6px;
             text-decoration: none;
@@ -103,8 +136,8 @@
         .badge {
             display: inline-block;
             padding: 4px 12px;
-            background: #ebf5ff;
-            color: #0068d6;
+            background: var(--badge-bg);
+            color: var(--badge-text);
             border-radius: 9999px;
             font-size: 12px;
             font-weight: 500;
@@ -117,12 +150,12 @@
             letter-spacing: -2.88px;
             line-height: 1;
             margin-bottom: 24px;
-            color: var(--vercel-black);
+            color: var(--text-primary);
         }
 
         .hero-desc {
             font-size: 1.25rem;
-            color: var(--vercel-gray-text);
+            color: var(--text-secondary);
             max-width: 700px;
             margin: 0 auto 40px;
             letter-spacing: -0.5px;
@@ -139,12 +172,12 @@
         }
 
         .card {
-            background: #ffffff;
+            background: var(--card-bg);
             padding: 32px;
             border-radius: 8px;
-            box-shadow: var(--vercel-shadow);
+            box-shadow: var(--shadow-primary);
             text-align: left;
-            transition: transform 0.2s;
+            transition: transform 0.2s, background-color 0.3s;
         }
 
         .card:hover {
@@ -173,15 +206,15 @@
 
         .card p {
             font-size: 14px;
-            color: var(--vercel-gray-text);
+            color: var(--text-secondary);
         }
 
         /* Footer */
         footer {
-            border-top: 1px solid #ebebeb;
+            border-top: 1px solid var(--footer-border);
             padding: 40px 24px;
             text-align: center;
-            color: var(--vercel-gray-text);
+            color: var(--text-secondary);
             font-size: 14px;
         }
 
@@ -212,7 +245,7 @@
         <p class="hero-desc">Cuki membantu kamu membangun, memantau, dan melakukan push projek Web3 langsung dari VPS dengan kecepatan cahaya.</p>
         <div style="display: flex; gap: 16px; justify-content: center;">
             <a href="#" class="btn-dark" style="padding: 12px 24px; font-size: 16px;">Get Started</a>
-            <a href="#" style="text-decoration: none; color: var(--vercel-black); padding: 12px 24px; font-size: 16px; font-weight: 500; border-radius: 6px; box-shadow: var(--vercel-border);">Read Documentation</a>
+            <a href="#" style="text-decoration: none; color: var(--text-primary); padding: 12px 24px; font-size: 16px; font-weight: 500; border-radius: 6px; box-shadow: 0px 0px 0px 1px var(--border-color);">Read Documentation</a>
         </div>
     </header>
 
