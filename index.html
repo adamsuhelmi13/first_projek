@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuki - Modern Web3 Solution</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --vercel-black: #171717;
+            --vercel-gray-text: #4d4d4d;
+            --vercel-border: rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+            --vercel-shadow: rgba(0, 0, 0, 0.08) 0px 0px 0px 1px, rgba(0, 0, 0, 0.04) 0px 2px 2px;
+            --accent-blue: #0070f3;
+            --accent-pink: #de1d8d;
+            --accent-red: #ff5b4f;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Geist', system-ui, -apple-system, sans-serif;
+            color: var(--vercel-black);
+            background-color: #ffffff;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 100;
+            box-shadow: var(--vercel-border);
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 1.25rem;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--vercel-gray-text);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--vercel-black);
+        }
+
+        .btn-dark {
+            background: var(--vercel-black);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .btn-dark:hover {
+            opacity: 0.9;
+        }
+
+        /* Hero Section */
+        header {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 24px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #ebf5ff;
+            color: #0068d6;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 600;
+            letter-spacing: -2.88px;
+            line-height: 1;
+            margin-bottom: 24px;
+            color: var(--vercel-black);
+        }
+
+        .hero-desc {
+            font-size: 1.25rem;
+            color: var(--vercel-gray-text);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            letter-spacing: -0.5px;
+        }
+
+        /* Pipeline Workflow */
+        .workflow {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto 80px;
+            padding: 0 24px;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 32px;
+            border-radius: 8px;
+            box-shadow: var(--vercel-shadow);
+            text-align: left;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+        }
+
+        .card-label {
+            font-family: 'Geist Mono', monospace;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .develop { color: var(--accent-blue); }
+        .preview { color: var(--accent-pink); }
+        .ship { color: var(--accent-red); }
+
+        .card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.96px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: var(--vercel-gray-text);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid #ebebeb;
+            padding: 40px 24px;
+            text-align: center;
+            color: var(--vercel-gray-text);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; letter-spacing: -1.5px; }
+            .workflow { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <svg viewBox="0 0 76 65" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M37.5274 0L75.0548 65H0L37.5274 0Z" fill="black"/></svg>
+            CUKI
+        </div>
+        <div class="nav-links">
+            <a href="#">Solutions</a>
+            <a href="#">Resources</a>
+            <a href="#">Pricing</a>
+        </div>
+        <a href="https://github.com/adamsuhelmi13" class="btn-dark">GitHub</a>
+    </nav>
+
+    <header>
+        <div class="badge">Vercel Style Edition</div>
+        <h1>Your Gateway to <br>Web3 Excellence.</h1>
+        <p class="hero-desc">Cuki membantu kamu membangun, memantau, dan melakukan push projek Web3 langsung dari VPS dengan kecepatan cahaya.</p>
+        <div style="display: flex; gap: 16px; justify-content: center;">
+            <a href="#" class="btn-dark" style="padding: 12px 24px; font-size: 16px;">Get Started</a>
+            <a href="#" style="text-decoration: none; color: var(--vercel-black); padding: 12px 24px; font-size: 16px; font-weight: 500; border-radius: 6px; box-shadow: var(--vercel-border);">Read Documentation</a>
+        </div>
+    </header>
+
+    <div class="workflow">
+        <div class="card">
+            <span class="card-label develop">Develop</span>
+            <h3>Write & Build</h3>
+            <p>Tulis kode Python atau Smart Contract kamu langsung di VPS Ubuntu dengan bantuan Cuki.</p>
+        </div>
+        <div class="card">
+            <span class="card-label preview">Preview</span>
+            <h3>Test Instantly</h3>
+            <p>Lakukan simulasi transaksi atau jalankan script untuk memastikan semuanya berjalan lancar.</p>
+        </div>
+        <div class="card">
+            <span class="card-label ship">Ship</span>
+            <h3>Push to GitHub</h3>
+            <p>Deploy hasil karyamu ke repository GitHub adamsuhelmi13 dengan satu perintah otomatis.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Cuki Agent. Styled with Vercel Design System. Created for Adam.</p>
+    </footer>
+</body>
+</html>
